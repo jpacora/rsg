@@ -5,7 +5,7 @@ A tool to generate various ways to do a reverse shell
 ## Installation
 
 ```sh
-$ npm install -g rsg
+$ npm install -g rsg-cli
 ```
 
 ## Listen for inbound connections

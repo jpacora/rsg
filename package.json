@@ -1,5 +1,5 @@
 {
-  "name": "rsg",
+  "name": "rsg-cli",
   "version": "1.0.0",
   "description": "Reverse Shell Generator",
   "main": "bin/rsg",
