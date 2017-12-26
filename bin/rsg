@@ -1,0 +1,70 @@
+#!/usr/bin/env node
+
+const colors = require('colors/safe'),
+	program = require('commander'),
+	fs = require('fs');
+
+console.log(colors.bold.red(`                                                
+                                                            
+RRRRRRRRRRRRRRRRR      SSSSSSSSSSSSSSS         GGGGGGGGGGGGG
+R::::::::::::::::R   SS:::::::::::::::S     GGG::::::::::::G
+R::::::RRRRRR:::::R S:::::SSSSSS::::::S   GG:::::::::::::::G
+RR:::::R     R:::::RS:::::S     SSSSSSS  G:::::GGGGGGGG::::G
+  R::::R     R:::::RS:::::S             G:::::G       GGGGGG
+  R::::R     R:::::RS:::::S            G:::::G              
+  R::::RRRRRR:::::R  S::::SSSS         G:::::G              
+  R:::::::::::::RR    SS::::::SSSSS    G:::::G    GGGGGGGGGG
+  R::::RRRRRR:::::R     SSS::::::::SS  G:::::G    G::::::::G
+  R::::R     R:::::R       SSSSSS::::S G:::::G    GGGGG::::G
+  R::::R     R:::::R            S:::::SG:::::G        G::::G
+  R::::R     R:::::R            S:::::S G:::::G       G::::G
+RR:::::R     R:::::RSSSSSSS     S:::::S  G:::::GGGGGGGG::::G
+R::::::R     R:::::RS::::::SSSSSS:::::S   GG:::::::::::::::G
+R::::::R     R:::::RS:::::::::::::::SS      GGG::::::GGG:::G
+RRRRRRRR     RRRRRRR SSSSSSSSSSSSSSS           GGGGGG   GGGG
+                                      
+
+                                                By @IkeyHack
+     
+      	-=[Reverse Shell Generation Tool]=-
+                                                            
+`));
+
+program
+  .version('1.0.0')
+  .description('RSG: A tool to generate various ways to do a reverse shell')
+  .option('-h, --host [HOST]', 'Host')
+  .option('-p, --port [PORT]', 'Port');
+
+program.on('--help', function(){
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ rsg --host 127.0.0.1 --port 1337');
+  console.log('');
+  console.log('  Copyright 2017 Jorge Pacora')
+});
+
+program.parse(process.argv);
+
+
+if(!program.host) {
+	console.log('You need to set the --host param, see --help')
+	return;
+}
+
+if(!program.port) {
+	console.log('You need to set the --port param, see --help')
+	return;
+}
+
+
+
+var lineReader = require('readline').createInterface({
+  input: require('fs').createReadStream('../shells.txt')
+});
+
+lineReader.on('line', function (line) {
+	let _Data = line.split('|');
+	console.log(colors.green.underline(_Data[0]+':'));
+	console.log(colors.white(_Data[1].replace('[IPADDR]',program.host).replace('[PORT]',program.port)));
+});
