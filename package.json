@@ -1,0 +1,24 @@
+{
+  "name": "rsg",
+  "version": "1.0.0",
+  "description": "Reverse Shell Generator",
+  "main": "bin/rsg",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpacora/rsg.git"
+  },
+  "keywords": [
+    "reverse",
+    "shell",
+    "sectool"
+  ],
+  "author": "Jorge Pacora",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpacora/rsg/issues"
+  },
+  "homepage": "https://github.com/jpacora/rsg#readme"
+}
