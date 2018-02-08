@@ -24,6 +24,8 @@ $ nc -l -v HOST PORT
 
 ![RSG](https://raw.githubusercontent.com/jpacora/rsg/master/screenshot.png)
 
+# Based on a python work by @mthbernardes
+
 
 License
 ----
